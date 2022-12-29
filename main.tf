@@ -1,7 +1,7 @@
 
 resource   "azurerm_resource_group"   "rg"   { 
    name   =   "rg_eastus_89125_1_1672323167490" 
-   location   =   "east us" 
+   location   =   "eastus" 
  }
 
 # Create virtual network
