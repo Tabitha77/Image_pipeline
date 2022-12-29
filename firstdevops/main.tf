@@ -106,9 +106,9 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+     publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2016-Datacenter"
     version   = "latest"
   }
 
