@@ -1,11 +1,8 @@
-resource "random_pet" "rg_name" {
-  prefix = var.resource_group_name_prefix
-}
 
-resource "azurerm_resource_group" "rg" {
-  location = var.resource_group_location
-  name     = random_pet.rg_name.id
-}
+resource   "azurerm_resource_group"   "rg"   { 
+   name   =   "rg_eastus_89125_1_1672323167490" 
+   location   =   "east us" 
+ }
 
 # Create virtual network
 resource "azurerm_virtual_network" "my_terraform_network" {
@@ -97,7 +94,7 @@ resource "tls_private_key" "example_ssh" {
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
-  name                  = "myVM"
+  name                  = "myVM1"
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
@@ -106,7 +103,7 @@ resource "azurerm_linux_virtual_machine" "my_terraform_vm" {
   os_disk {
     name                 = "myOsDisk"
     caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    storage_account_type = "Standard_LRS"
   }
 
   source_image_reference {
